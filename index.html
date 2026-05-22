@@ -483,61 +483,137 @@
     font-size: clamp(24px, 2.8vw, 38px);
     font-weight: 600;
     line-height: 1.15;
-    margin-bottom: 36px;
+    margin-bottom: 24px;
   }
 
   .s4-title em { font-style: italic; color: var(--accent); }
 
-  .audit-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    gap: 64px;
-    align-items: start;
+  /* Report browser mockup */
+  .report-browser {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05);
+    overflow: hidden;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
   }
 
-  .audit-card {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    padding: 30px;
+  .browser-chrome {
+    background: #EDEAE4;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    gap: 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    flex-shrink: 0;
   }
 
-  .audit-hdr {
-    font-size: 10.5px;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    color: var(--ink-light);
-    margin-bottom: 18px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--border);
+  .browser-dots { display: flex; gap: 6px; }
+  .browser-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .bd-red { background: #FF5F57; }
+  .bd-yellow { background: #FFBD2E; }
+  .bd-green { background: #28C840; }
+
+  .browser-url {
+    flex: 1;
+    background: rgba(255,255,255,0.75);
+    border-radius: 4px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    font-size: 10px;
+    color: #999;
+    font-family: var(--sans);
   }
 
-  .arow {
+  .report-body {
+    padding: 18px 22px 16px;
+    background: #FAFAF7;
+  }
+
+  .report-hdr-row {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    padding: 9px 0;
-    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 14px;
   }
 
-  .arow:last-child { border-bottom: none; }
-  .arow-l { font-size: 13px; font-weight: 300; color: var(--ink-mid); }
-  .arow-v { font-family: var(--serif); font-size: 18px; font-weight: 600; }
-  .arow-v.big { font-size: 24px; color: var(--accent); }
+  .report-name { font-size: 13px; font-weight: 600; color: var(--ink); font-family: var(--sans); }
+  .report-period { font-size: 11px; color: var(--ink-light); font-family: var(--sans); }
 
-  .clusters-label {
-    font-size: 10.5px;
-    letter-spacing: 0.13em;
+  .report-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .rstat {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 11px 14px;
+  }
+
+  .rstat-val {
+    font-size: 21px;
+    font-weight: 600;
+    font-family: var(--serif);
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .rstat-val.green { color: var(--accent); }
+
+  .rstat-label {
+    font-size: 10px;
+    color: var(--ink-light);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: var(--sans);
+  }
+
+  .rtable-hdr {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
     text-transform: uppercase;
     color: var(--ink-light);
-    margin-bottom: 8px;
+    font-family: var(--sans);
   }
 
-  .ci { padding: 11px 0; border-bottom: 1px solid var(--border-light); }
-  .ci:last-child { border-bottom: none; }
-  .ci-top { display: flex; justify-content: space-between; margin-bottom: 2px; }
-  .ci-city { font-size: 14px; font-weight: 400; }
-  .ci-save { font-family: var(--serif); font-size: 16px; color: var(--accent); }
-  .ci-detail { font-size: 11.5px; color: var(--ink-light); }
+  .rtable-hdr span:last-child { text-align: right; }
+
+  .rrow {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border-light);
+    align-items: center;
+    font-family: var(--sans);
+  }
+
+  .rrow:last-child { border-bottom: none; }
+  .rr-city { font-size: 12.5px; font-weight: 400; color: var(--ink); }
+  .rr-dates { font-size: 10.5px; color: var(--ink-light); margin-top: 1px; }
+  .rr-rooms { font-size: 12px; color: var(--ink-mid); }
+  .rr-save { font-size: 13px; font-weight: 600; color: var(--accent); font-family: var(--serif); text-align: right; }
+
+  .report-note {
+    font-size: 10px;
+    color: var(--ink-light);
+    margin-top: 10px;
+    font-family: var(--sans);
+    line-height: 1.5;
+  }
 
   /* PRICING */
   #s5 { border-top: 1px solid var(--border-light); }
@@ -744,7 +820,11 @@
     .nav-links { display: none; }
     .inner { padding: 0 20px; }
     .steps { grid-template-columns: 1fr; }
-    .gpo-grid, .audit-grid, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+    .gpo-grid, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+    .report-stats { grid-template-columns: repeat(3, 1fr); }
+    .rtable-hdr, .rrow { grid-template-columns: 2fr 0fr 0fr 1fr; }
+    .rtable-hdr span:nth-child(2), .rtable-hdr span:nth-child(3),
+    .rrow .rr-rooms { display: none; }
     .stats-row { flex-wrap: wrap; gap: 24px; }
     .frow { grid-template-columns: 1fr; }
     .section-dots { display: none; }
@@ -848,23 +928,71 @@
   <div class="inner">
     <p class="eyebrow reveal d1">The free audit</p>
     <h2 class="s4-title reveal d2">Real numbers. <em>Your data. Your savings.</em></h2>
-    <div class="audit-grid">
-      <div class="audit-card reveal d3">
-        <p class="audit-hdr">Audit summary — example company</p>
-        <div class="arow"><span class="arow-l">Hotel bookings analysed</span><span class="arow-v">623</span></div>
-        <div class="arow"><span class="arow-l">Cities covered</span><span class="arow-v">14</span></div>
-        <div class="arow"><span class="arow-l">Clusters identified (4+ rooms)</span><span class="arow-v">22</span></div>
-        <div class="arow"><span class="arow-l">Confirmed moveable rooms</span><span class="arow-v">247</span></div>
-        <div class="arow"><span class="arow-l">Total unclaimed savings</span><span class="arow-v big">€21,400</span></div>
+    <div class="report-browser reveal d3">
+      <div class="browser-chrome">
+        <div class="browser-dots">
+          <div class="browser-dot bd-red"></div>
+          <div class="browser-dot bd-yellow"></div>
+          <div class="browser-dot bd-green"></div>
+        </div>
+        <div class="browser-url">app.poolare.com/report/acme-corp-q1-2025</div>
       </div>
-      <div class="reveal d4">
-        <p class="clusters-label">Top clusters by saving potential</p>
-        <div class="ci"><div class="ci-top"><span class="ci-city">Amsterdam — 14–17 May</span><span class="ci-save">€4,200</span></div><p class="ci-detail">25 employees · 3 hotels within 2km · 3 nights avg</p></div>
-        <div class="ci"><div class="ci-top"><span class="ci-city">Frankfurt — 3–6 March</span><span class="ci-save">€3,100</span></div><p class="ci-detail">23 employees · 2 hotels within 1.5km · 3 nights avg</p></div>
-        <div class="ci"><div class="ci-top"><span class="ci-city">Paris — 22–24 January</span><span class="ci-save">€2,600</span></div><p class="ci-detail">23 employees · 3 hotels within 2.5km · 2 nights avg</p></div>
-        <div class="ci"><div class="ci-top"><span class="ci-city">London — 8–10 February</span><span class="ci-save">€2,400</span></div><p class="ci-detail">21 employees · 2 hotels within 1km · 2 nights avg</p></div>
-        <div class="ci"><div class="ci-top"><span class="ci-city">Barcelona — 19–21 April</span><span class="ci-save">€1,950</span></div><p class="ci-detail">18 employees · 3 hotels within 2km · 2 nights avg</p></div>
-        <p style="font-size:11.5px;color:var(--ink-light);margin-top:14px;line-height:1.65;">Savings shown net of cancellation costs. Your audit reflects your real booking history.</p>
+      <div class="report-body">
+        <div class="report-hdr-row">
+          <span class="report-name">Savings Audit — Acme Corp B.V.</span>
+          <span class="report-period">January – April 2025 &middot; 623 bookings</span>
+        </div>
+        <div class="report-stats">
+          <div class="rstat">
+            <div class="rstat-val green">€21,400</div>
+            <div class="rstat-label">Unclaimed savings</div>
+          </div>
+          <div class="rstat">
+            <div class="rstat-val">22</div>
+            <div class="rstat-label">Clusters found</div>
+          </div>
+          <div class="rstat">
+            <div class="rstat-val">247</div>
+            <div class="rstat-label">Moveable rooms</div>
+          </div>
+        </div>
+        <div class="rtable-hdr">
+          <span>Location</span>
+          <span>Rooms</span>
+          <span>Hotels</span>
+          <span>Est. saving</span>
+        </div>
+        <div class="rrow">
+          <div><div class="rr-city">Amsterdam</div><div class="rr-dates">14–17 May &middot; 3 nights avg</div></div>
+          <div class="rr-rooms">25 rooms</div>
+          <div class="rr-rooms">3 hotels</div>
+          <div class="rr-save">€4,200</div>
+        </div>
+        <div class="rrow">
+          <div><div class="rr-city">Frankfurt</div><div class="rr-dates">3–6 March &middot; 3 nights avg</div></div>
+          <div class="rr-rooms">23 rooms</div>
+          <div class="rr-rooms">2 hotels</div>
+          <div class="rr-save">€3,100</div>
+        </div>
+        <div class="rrow">
+          <div><div class="rr-city">Paris</div><div class="rr-dates">22–24 January &middot; 2 nights avg</div></div>
+          <div class="rr-rooms">23 rooms</div>
+          <div class="rr-rooms">3 hotels</div>
+          <div class="rr-save">€2,600</div>
+        </div>
+        <div class="rrow">
+          <div><div class="rr-city">London</div><div class="rr-dates">8–10 February &middot; 2 nights avg</div></div>
+          <div class="rr-rooms">21 rooms</div>
+          <div class="rr-rooms">2 hotels</div>
+          <div class="rr-save">€2,400</div>
+        </div>
+        <div class="rrow">
+          <div><div class="rr-city">Barcelona</div><div class="rr-dates">19–21 April &middot; 2 nights avg</div></div>
+          <div class="rr-rooms">18 rooms</div>
+          <div class="rr-rooms">3 hotels</div>
+          <div class="rr-save">€1,950</div>
+        </div>
+        <p class="report-note">Savings estimated net of cancellation costs. Figures based on live cluster detection against current group rates.</p>
       </div>
     </div>
   </div>
