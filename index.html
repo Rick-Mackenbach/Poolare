@@ -539,15 +539,99 @@
   .ci-save { font-family: var(--serif); font-size: 16px; color: var(--accent); }
   .ci-detail { font-size: 11.5px; color: var(--ink-light); }
 
+  /* PRICING */
+  #s5 { border-top: 1px solid var(--border-light); }
+
+  .pricing-h2 {
+    font-family: var(--serif);
+    font-size: clamp(26px, 2.8vw, 42px);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 40px;
+  }
+
+  .pricing-h2 em { font-style: italic; color: var(--accent); }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .pricing-card {
+    border: 1px solid var(--border);
+    padding: 36px;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pricing-card--featured {
+    border-color: var(--accent);
+    background: var(--bg-alt);
+  }
+
+  .pricing-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 16px;
+  }
+
+  .pricing-price {
+    font-family: var(--serif);
+    font-size: 42px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .pricing-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--ink-light);
+    margin-bottom: 28px;
+  }
+
+  .pricing-features {
+    list-style: none;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .pricing-features li {
+    font-size: 13.5px;
+    font-weight: 300;
+    color: var(--ink-mid);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .pricing-features li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
   /* CONTACT */
-  #s5 {
+  #s6 {
     border-top: 1px solid var(--border-light);
     min-height: calc(100vh - 68px);
     min-height: calc(100dvh - 68px);
   }
 
   #s1 > .inner,
-  #s5 > .inner {
+  #s5 > .inner, #s6 > .inner {
     margin-top: auto;
     margin-bottom: auto;
   }
@@ -675,9 +759,10 @@
   <ul class="nav-links">
     <li><a href="#s2">How it works</a></li>
     <li><a href="#s4">The audit</a></li>
-    <li><a href="#s5">Get started</a></li>
+    <li><a href="#s6">Pricing</a></li>
+    <li><a href="#s6">Get started</a></li>
   </ul>
-  <a href="#s5" class="btn-nav">Get started free</a>
+  <a href="#s6" class="btn-nav">Join the pilot</a>
 </nav>
 
 <div class="section-dots" id="dots">
@@ -686,6 +771,7 @@
   <button class="dot" onclick="goTo(2)" aria-label="Section 3"></button>
   <button class="dot" onclick="goTo(3)" aria-label="Section 4"></button>
   <button class="dot" onclick="goTo(4)" aria-label="Section 5"></button>
+  <button class="dot" onclick="goTo(5)" aria-label="Section 6"></button>
 </div>
 
 <div class="scroll-wrap" id="scroll-wrap">
@@ -695,9 +781,9 @@
   <div class="inner">
     <p class="eyebrow reveal d1">Group hotel rates, revisited</p>
     <h1 class="hero-h1 reveal d2">Your employees are already<br><em>travelling together.</em><br>Nobody is using that.</h1>
-    <p class="hero-sub reveal d3">Poolare <strong>pools your corporate travel demand</strong> and negotiates <strong>group hotel rates</strong> on your behalf. <strong>Free first audit</strong>, subscription fee afterwards.</p>
+    <p class="hero-sub reveal d3">Poolare <strong>pools your corporate travel demand</strong> and negotiates <strong>group hotel rates</strong> on your behalf. <strong>Free first audit</strong> — we're currently onboarding a select group of pilot companies. No commitment, no workflow change.</p>
     <div class="hero-actions reveal d4">
-      <a href="#s5" class="btn-primary">See your savings →</a>
+      <a href="#s6" class="btn-primary">Apply for a pilot audit →</a>
       <a href="#s2" class="btn-text">See how it works</a>
     </div>
     <div class="stats-row reveal d5">
@@ -748,7 +834,7 @@
         <p class="eyebrow reveal d1">The model</p>
         <h2 class="gpo-h2 reveal d2">The GPO model.<br><em>Applied to hotel room nights</em> for the first time.</h2>
         <p class="gpo-body reveal d3">Group Purchasing Organisations have <strong>pooled demand</strong> to negotiate lower prices in healthcare, foodservice, and logistics for <strong>over 100 years</strong>. Nobody had applied it to corporate hotel bookings — <strong>until now.</strong></p>
-        <a href="#s5" class="btn-white reveal d4">Start free →</a>
+        <a href="#s6" class="btn-white reveal d4">Start free →</a>
       </div>
       <div class="gpo-photo reveal d3">
         <img src="rob-wilson-WuD-H9IQnfg-unsplash.jpg" alt="Business travellers at airport">
@@ -784,8 +870,42 @@
   </div>
 </section>
 
-<!-- S5 CONTACT -->
+<!-- S5 PRICING -->
 <section class="snap-section" id="s5">
+  <div class="inner">
+    <p class="eyebrow reveal d1">Pricing</p>
+    <h2 class="pricing-h2 reveal d2">Simple pricing. <em>Start for free.</em></h2>
+    <div class="pricing-grid reveal d3">
+      <div class="pricing-card">
+        <p class="pricing-label">Free audit</p>
+        <p class="pricing-price">Free</p>
+        <p class="pricing-desc">No credit card required. No commitment.</p>
+        <ul class="pricing-features">
+          <li>Full booking history analysis</li>
+          <li>Demand cluster identification</li>
+          <li>Personalised savings report</li>
+          <li>Delivered within 5 business days</li>
+        </ul>
+        <a href="#s6" class="btn-primary">Apply for pilot →</a>
+      </div>
+      <div class="pricing-card pricing-card--featured">
+        <p class="pricing-label">Subscription</p>
+        <p class="pricing-price">On request</p>
+        <p class="pricing-desc">Pricing based on travel volume and team size.</p>
+        <ul class="pricing-features">
+          <li>Ongoing cluster monitoring</li>
+          <li>Automated hotel negotiations</li>
+          <li>Rate management & reporting</li>
+          <li>Dedicated account manager</li>
+        </ul>
+        <a href="#s6" class="btn-primary">Get in touch →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S6 CONTACT -->
+<section class="snap-section" id="s6">
   <div class="inner">
     <div class="contact-grid">
       <div class="reveal d1">
