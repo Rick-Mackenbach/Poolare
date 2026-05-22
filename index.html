@@ -741,7 +741,7 @@
           <div class="trust-item"><span class="tdot"></span><span>No obligation after the audit report</span></div>
         </div>
       </div>
-      <form class="reveal d2" action="https://formspree.io/f/mredkbrw" method="POST" onsubmit="handleSubmit(event)">
+      <form class="reveal d2" action="https://formspree.io/f/mredkbrw" method="POST">
         <div class="frow">
           <div class="field"><label for="fn">First name</label><input type="text" id="fn" name="first_name" placeholder="Anna" required></div>
           <div class="field"><label for="ln">Last name</label><input type="text" id="ln" name="last_name" placeholder="De Vries" required></div>
@@ -802,12 +802,7 @@
     sections[i].scrollIntoView({ behavior: 'smooth' });
   }
 
-  function handleSubmit(e) {
-    const btn = document.getElementById('sbtn');
-    btn.textContent = 'Request received ✓';
-    btn.style.background = '#2D5443';
-    btn.disabled = true;
-  }
+
 </script>
 </body>
 </html>
