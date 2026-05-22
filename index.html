@@ -260,7 +260,7 @@
     align-items: center;
     gap: 8px;
     opacity: 0;
-    transition: opacity 0.6s ease 1.3s; 
+    transition: opacity 0.6s ease 1.3s;
   }
 
   .snap-section.active .scroll-hint { opacity: 1; }
@@ -741,7 +741,7 @@
           <div class="trust-item"><span class="tdot"></span><span>No obligation after the audit report</span></div>
         </div>
       </div>
-      <form class="reveal d2" onsubmit="handleSubmit(event)">
+      <form class="reveal d2" action="https://formspree.io/f/mredkbrw" method="POST" onsubmit="handleSubmit(event)">
         <div class="frow">
           <div class="field"><label for="fn">First name</label><input type="text" id="fn" placeholder="Anna" required></div>
           <div class="field"><label for="ln">Last name</label><input type="text" id="ln" placeholder="De Vries" required></div>
@@ -803,7 +803,6 @@
   }
 
   function handleSubmit(e) {
-    e.preventDefault();
     const btn = document.getElementById('sbtn');
     btn.textContent = 'Request received ✓';
     btn.style.background = '#2D5443';
