@@ -176,6 +176,35 @@
     margin-bottom: 14px;
   }
 
+  /* HERO PHOTO */
+  .hero-photo {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 38%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .hero-photo::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    background: linear-gradient(to right, var(--bg), transparent);
+    z-index: 1;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
   /* HERO */
   .hero-h1 {
     font-family: var(--serif);
@@ -394,6 +423,20 @@
   }
 
   .btn-white:hover { opacity: 0.88; }
+
+  .gpo-photo {
+    overflow: hidden;
+    min-height: 320px;
+  }
+
+  .gpo-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.75;
+    mix-blend-mode: luminosity;
+  }
 
   .gpo-cards {
     display: flex;
@@ -618,7 +661,7 @@
 <body>
 
 <nav>
-  <div class="logo">Pool<span>are</span></div>
+  <a href="#s1" class="logo" style="display:flex;align-items:center;gap:10px;"><img src="favicon.svg" alt="Poolare" style="height:32px;width:32px;display:block;"><span>Pool<span style="color:var(--accent)">are</span></span></a>
   <ul class="nav-links">
     <li><a href="#s2">How it works</a></li>
     <li><a href="#s4">The audit</a></li>
@@ -652,6 +695,9 @@
       <div><p class="stat-label">First audit</p><p class="stat-val">Free</p></div>
       <div><p class="stat-label">Setup time</p><p class="stat-val">< 1 day</p></div>
     </div>
+  </div>
+  <div class="hero-photo">
+    <img src="yousef-alfuhigi-bMIlyKZHKMY-unsplash.jpg" alt="Business traveller at airport">
   </div>
   <div class="scroll-hint">
     <span>Scroll</span>
@@ -694,19 +740,8 @@
         <p class="gpo-body reveal d3">Group Purchasing Organisations have pooled demand to negotiate lower prices in healthcare, foodservice, and logistics for over 100 years. Nobody had applied it to corporate hotel bookings — until now.</p>
         <a href="#s5" class="btn-white reveal d4">Get your free audit →</a>
       </div>
-      <div class="gpo-cards reveal d3">
-        <div class="gpo-card">
-          <h3 class="gpo-card-t">Free first audit</h3>
-          <p class="gpo-card-d">No upfront commitment, no workflow change. Connect your travel system, we analyse your booking history and deliver a personalised savings report within 5 business days.</p>
-        </div>
-        <div class="gpo-card">
-          <h3 class="gpo-card-t">Anonymous by design</h3>
-          <p class="gpo-card-d">No company ever sees another company's data. No hotel knows which companies are in the pool. Output is a rate, not a dataset.</p>
-        </div>
-        <div class="gpo-card">
-          <h3 class="gpo-card-t">Your data never leaves the EU</h3>
-          <p class="gpo-card-d">All data is processed and stored within the EU. GDPR compliant by design — no PII is shared with other companies or hotels beyond what is necessary to complete a booking.</p>
-        </div>
+      <div class="gpo-photo reveal d3">
+        <img src="rob-wilson-WuD-H9IQnfg-unsplash.jpg" alt="Business travellers at airport">
       </div>
     </div>
   </div>
