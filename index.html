@@ -743,15 +743,15 @@
       </div>
       <form class="reveal d2" action="https://formspree.io/f/mredkbrw" method="POST" onsubmit="handleSubmit(event)">
         <div class="frow">
-          <div class="field"><label for="fn">First name</label><input type="text" id="fn" placeholder="Anna" required></div>
-          <div class="field"><label for="ln">Last name</label><input type="text" id="ln" placeholder="De Vries" required></div>
+          <div class="field"><label for="fn">First name</label><input type="text" id="fn" name="first_name" placeholder="Anna" required></div>
+          <div class="field"><label for="ln">Last name</label><input type="text" id="ln" name="last_name" placeholder="De Vries" required></div>
         </div>
-        <div class="field"><label for="em">Work email</label><input type="email" id="em" placeholder="anna@company.com" required></div>
-        <div class="field"><label for="co">Company</label><input type="text" id="co" placeholder="Acme B.V." required></div>
+        <div class="field"><label for="em">Work email</label><input type="email" id="em" name="email" placeholder="anna@company.com" required></div>
+        <div class="field"><label for="co">Company</label><input type="text" id="co" name="company" placeholder="Acme B.V." required></div>
         <div class="frow">
           <div class="field">
             <label for="sz">Company size</label>
-            <select id="sz">
+            <select id="sz" name="company_size">
               <option value="">Select range</option>
               <option>100–500 employees</option>
               <option>500–1,000 employees</option>
@@ -761,7 +761,7 @@
           </div>
           <div class="field">
             <label for="tm">Travel system</label>
-            <select id="tm">
+            <select id="tm" name="travel_system">
               <option value="">Select system</option>
               <option>Concur (SAP)</option>
               <option>Cytric (Amadeus)</option>
@@ -770,7 +770,7 @@
             </select>
           </div>
         </div>
-        <div class="field"><label for="msg">Anything to add? (optional)</label><textarea id="msg" placeholder="e.g. we travel heavily to Amsterdam and Frankfurt..."></textarea></div>
+        <div class="field"><label for="msg">Anything to add? (optional)</label><textarea id="msg" name="message" placeholder="e.g. we travel heavily to Amsterdam and Frankfurt..."></textarea></div>
         <button type="submit" class="btn-submit" id="sbtn">Request free audit →</button>
 
       </form>
