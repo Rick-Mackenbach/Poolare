@@ -6,7 +6,8 @@
 <title>Poolare — Group Hotel Rates for Modern Companies</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -55,11 +56,10 @@
     overflow: hidden;
   }
 
-
-
   .reveal {
     opacity: 0;
     transform: translateY(26px);
+    will-change: transform, opacity;
     transition: opacity 0.72s cubic-bezier(0.22,1,0.36,1), transform 0.72s cubic-bezier(0.22,1,0.36,1);
   }
 
@@ -68,7 +68,6 @@
   .reveal.d3 { transition-delay: 0.29s; }
   .reveal.d4 { transition-delay: 0.41s; }
   .reveal.d5 { transition-delay: 0.53s; }
-  .reveal.d6 { transition-delay: 0.65s; }
 
   .snap-section.active .reveal {
     opacity: 1;
@@ -86,6 +85,7 @@
     height: 68px;
     background: rgba(250,250,247,0.93);
     backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border-light);
   }
 
@@ -343,6 +343,7 @@
 
   /* GPO */
   #s3 { background: var(--accent); }
+  #s3 .eyebrow { color: rgba(255,255,255,0.45); }
 
   .gpo-grid {
     display: grid;
@@ -479,7 +480,14 @@
   .ci-detail { font-size: 11.5px; color: var(--ink-light); }
 
   /* CONTACT */
-  #s5 { background: var(--bg); border-top: 1px solid var(--border-light); }
+  #s5 {
+    border-top: 1px solid var(--border-light);
+    height: auto;
+    min-height: 100vh;
+    min-height: 100svh;
+    justify-content: center;
+    padding-top: 88px;
+  }
 
   .contact-grid {
     display: grid;
@@ -571,14 +579,6 @@
 
   .btn-submit:hover { background: var(--accent-light); }
 
-  .form-note {
-    font-size: 11.5px;
-    font-weight: 300;
-    color: var(--ink-light);
-    text-align: center;
-    line-height: 1.6;
-  }
-
   .footer-bar {
     padding: 28px 56px;
     border-top: 1px solid var(--border-light);
@@ -647,7 +647,7 @@
 </section>
 
 <!-- S2 HOW IT WORKS -->
-<section class="snap-section" id="s2" style="border-top:1px solid var(--border-light)">
+<section class="snap-section" id="s2">
   <div class="inner">
     <p class="eyebrow reveal d1">How it works</p>
     <h2 class="s2-title reveal d2">Three steps to <em>unclaimed savings</em></h2>
@@ -672,11 +672,11 @@
 </section>
 
 <!-- S3 GPO -->
-<section class="snap-section" id="s3" style="background:var(--accent)">
+<section class="snap-section" id="s3">
   <div class="inner">
     <div class="gpo-grid">
       <div>
-        <p class="eyebrow reveal d1" style="color:rgba(255,255,255,0.45)">The model</p>
+        <p class="eyebrow reveal d1">The model</p>
         <h2 class="gpo-h2 reveal d2">The GPO model.<br><em>Applied to hotel room nights</em> for the first time.</h2>
         <p class="gpo-body reveal d3">Group Purchasing Organisations have pooled demand to negotiate lower prices in healthcare, foodservice, and logistics for over 100 years. Nobody had applied it to corporate hotel bookings — until now.</p>
         <a href="#s5" class="btn-white reveal d4">Get your free audit →</a>
@@ -700,7 +700,7 @@
 </section>
 
 <!-- S4 AUDIT -->
-<section class="snap-section" id="s4" style="background:var(--bg-alt);border-top:1px solid var(--border)">
+<section class="snap-section" id="s4">
   <div class="inner">
     <p class="eyebrow reveal d1">The free audit</p>
     <h2 class="s4-title reveal d2">Real numbers. <em>Your data. Your savings.</em></h2>
@@ -727,7 +727,7 @@
 </section>
 
 <!-- S5 CONTACT -->
-<section class="snap-section" id="s5" style="background:var(--bg);border-top:1px solid var(--border-light);height:auto;min-height:100vh;min-height:100svh;justify-content:center;padding-top:88px;">
+<section class="snap-section" id="s5">
   <div class="inner">
     <div class="contact-grid">
       <div class="reveal d1">
@@ -772,7 +772,6 @@
         </div>
         <div class="field"><label for="msg">Anything to add? (optional)</label><textarea id="msg" name="message" placeholder="e.g. we travel heavily to Amsterdam and Frankfurt..."></textarea></div>
         <button type="submit" class="btn-submit" id="sbtn">Request free audit →</button>
-
       </form>
     </div>
   </div>
@@ -783,26 +782,23 @@
 </section>
 
 <script>
-  document.getElementById('audit-form').addEventListener('submit', async function(e) {
+  const form = document.getElementById('audit-form');
+  const btn = document.getElementById('sbtn');
+
+  form.addEventListener('submit', async function(e) {
     e.preventDefault();
-    const btn = document.getElementById('sbtn');
     btn.textContent = 'Submitting...';
     btn.disabled = true;
     try {
-      const response = await fetch('https://formspree.io/f/mredkbrw', {
+      const res = await fetch('https://formspree.io/f/mredkbrw', {
         method: 'POST',
         body: new FormData(this),
         headers: { 'Accept': 'application/json' }
       });
-      if (response.ok) {
-        btn.textContent = 'Request received ✓';
-        btn.style.background = '#2D5443';
-      } else {
-        btn.textContent = 'Something went wrong — try again';
-        btn.style.background = '#c0392b';
-        btn.disabled = false;
-      }
-    } catch (err) {
+      if (!res.ok) throw new Error();
+      btn.textContent = 'Request received ✓';
+      btn.style.background = '#2D5443';
+    } catch {
       btn.textContent = 'Something went wrong — try again';
       btn.style.background = '#c0392b';
       btn.disabled = false;
@@ -827,8 +823,6 @@
   function goTo(i) {
     sections[i].scrollIntoView({ behavior: 'smooth' });
   }
-
-
 </script>
 </body>
 </html>
