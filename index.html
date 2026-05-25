@@ -816,6 +816,19 @@
   .footer-note { font-size: 12px; font-weight: 300; color: var(--ink-light); }
 
   @media (max-width: 900px) {
+    .scroll-wrap {
+      height: auto;
+      overflow-y: auto;
+      scroll-snap-type: none;
+    }
+    .snap-section {
+      height: auto;
+      min-height: 100svh;
+      overflow: visible;
+      scroll-snap-align: none;
+      scroll-snap-stop: normal;
+    }
+    #s6 { min-height: auto; }
     nav { padding: 0 20px; }
     .nav-links { display: none; }
     .inner { padding: 0 20px; }
