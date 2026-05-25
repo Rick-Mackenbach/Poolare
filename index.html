@@ -820,15 +820,24 @@
     .nav-links { display: none; }
     .inner { padding: 0 20px; }
     .steps { grid-template-columns: 1fr; }
-    .gpo-grid, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
-    .report-stats { grid-template-columns: repeat(3, 1fr); }
-    .rtable-hdr, .rrow { grid-template-columns: 2fr 0fr 0fr 1fr; }
-    .rtable-hdr span:nth-child(2), .rtable-hdr span:nth-child(3),
-    .rrow .rr-rooms { display: none; }
+    .gpo-grid, .contact-grid, .pricing-grid { grid-template-columns: 1fr; gap: 24px; }
+    .hero-photo { display: none; }
+    .hero-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .hero-sub { font-size: 15px; }
+    .report-stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .rstat { padding: 8px 10px; }
+    .rstat-val { font-size: 17px; }
+    .rtable-hdr { display: none; }
+    .rrow { grid-template-columns: 1fr auto; gap: 4px; }
+    .rrow .rr-rooms, .rrow .rr-hotels { display: none; }
+    .rr-dates { font-size: 10px; }
+    .report-body { padding: 14px 16px 12px; }
+    .report-hdr-row { flex-direction: column; gap: 2px; }
     .stats-row { flex-wrap: wrap; gap: 24px; }
     .frow { grid-template-columns: 1fr; }
     .section-dots { display: none; }
     .footer-bar { padding: 24px 20px; flex-direction: column; gap: 8px; text-align: center; }
+    .pricing-card--featured { order: -1; }
   }
 </style>
 </head>
